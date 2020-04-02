@@ -7,7 +7,7 @@
     name = "Xiaomi Mi Note 2";
     manufacturer = "Xiaomi";
     date = "";
-    dtb = "";
+    #dtb = "";
     modules_initfs = "";
     arch = "aarch64";
     keyboard = false;
@@ -38,6 +38,7 @@
 
     # TODO : make kernel part of options.
     kernel = pkgs.callPackage ./kernel { kernelPatches = pkgs.defaultKernelPatches; };
+    dtb = "${kernel}/dtbs/qcom/msm8996-v3.0-dtp.dtb";
   };
 
   mobile.hardware = {

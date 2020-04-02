@@ -28,8 +28,10 @@
 
   isModular = false;
 
+  makeFlags = [ "DCT_EXT=${buildPackages.dtc}/bin/dtc" ];
+
 }).overrideAttrs({ postInstall ? "", postPatch ? "", ... }: {
-  installTargets = [ "zinstall" "Image.gz-dtb" "install" ];
+  installTargets = [ "Image.gz" "zinstall" "Image.gz-dtb" "install" ];
   postPatch = postPatch + ''
     cp -v "${./compiler-gcc6.h}" "./include/linux/compiler-gcc6.h"
 
